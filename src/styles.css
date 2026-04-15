@@ -1,0 +1,383 @@
+/* styles.css */
+:root {
+  --bg-main: #1C1C1C;
+  --bg-card: #313131;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --primary: #ff7a34;
+  --primary-hover: #ff8c4e;
+  --success: #22946e;
+  --success-hover: #41c599;
+  --border: #5F5F5F;
+  --radius: 8px;
+  --pumpkinBlend: linear-gradient(45deg, #402a00, #a34400 25%, #d95b00 50%, #ff7518 75%, #e6a77e 100%);
+  --headerGradient: linear-gradient(45deg, #ff7518 60%, #FF9C59 70%);
+  /*credits: https://colorffy.com/*/
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  background: var(--headerGradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+header p {
+  color: var(--text-muted);
+}
+
+.card {
+  background-color: var(--bg-card);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.drop-zone {
+  border: 2px dashed var(--border);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+
+.drop-zone:hover {
+  border-color: var(--success-hover);
+  background-color: rgba(34, 148, 110, 0.1);
+}
+
+
+.drop-zone.dragover {
+  border-color: var(--success) !important;
+  background-color: rgba(16, 185, 129, 0.1) !important;
+}
+
+#upload-drop-zone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+.drop-content {
+  pointer-events: none;
+}
+
+.path-display {
+  width: 100%;
+  font-family: monospace;
+  background: var(--bg-main);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex-grow: 1;
+}
+
+.exclusions.drop-zone {
+  flex: 1;
+  padding: 0.75rem;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group:last-child {
+  margin-bottom: 0;
+}
+
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.token-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.token-label,
+#checkBox {
+  cursor: pointer;
+}
+
+.badge {
+  background: var(--primary);
+  padding: 0.1rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--text-main);
+}
+
+input[type="text"] {
+  width: 100%;
+  background-color: var(--bg-main);
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  padding: 0.75rem;
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+input[type="text"]:focus {
+  border-color: var(--primary);
+}
+
+input[type="range"] {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.input-group {
+  display: flex;
+  gap: 0.5rem;
+}
+
+button {
+  padding: 0.75rem 1.25rem;
+  border: none;
+  border-radius: var(--radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.95rem;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+}
+
+.btn-secondary {
+  background-color: var(--border);
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #475569;
+}
+
+.btn-success {
+  background-color: var(--success);
+  color: white;
+  flex: 1;
+}
+
+.btn-success:hover {
+  background-color: var(--success-hover);
+}
+
+.exclusions-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+
+.select-drop {
+  flex: 1;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.text-add {
+  width: 320px;
+  max-width: 50%;
+}
+
+.options-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.toggle-btn {
+  padding: 0.75rem 1.25rem;
+  border: none;
+  border-radius: var(--radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.95rem;
+}
+
+.options-body.collapsed {
+  display: none;
+}
+
+.options-body {
+  transition: max-height 0.18s ease;
+}
+
+.options-body.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.tag {
+  background-color: var(--border);
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.remove-tag {
+  cursor: pointer;
+  color: #f87171;
+  font-weight: bold;
+}
+
+.remove-tag:hover {
+  color: #ef4444;
+}
+
+.log-section {
+  position: relative;
+  overflow: hidden;
+}
+
+#bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: transparent;
+  height: 8px;
+  border-radius: 10px;
+  overflow: hidden;
+  display: none;
+  border: 1px solid var(--border);
+}
+
+#fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--success), var(--success-hover));
+  transition: width 0.1s ease-out, background-color 0.3s;
+}
+
+#log {
+  background-color: #141414;
+  border: 1px solid var(--border);
+  padding: 1rem;
+  border-radius: var(--radius);
+  height: 250px;
+  overflow-y: auto;
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+  font-size: 0.85rem;
+  color: #a7f3d0;
+  white-space: pre-wrap;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 650px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .options-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .toggle-btn {
+    width: 100%;
+  }
+
+  .exclusions-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .select-drop,
+  .text-add {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .input-group {
+    flex-direction: column;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .btn-success {
+    width: 100%;
+  }
+}

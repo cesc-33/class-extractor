@@ -1,0 +1,17 @@
+node_modules/
+dist/
+build/
+out/
+
+*.log
+*.lock
+
+.DS_Store
+Thumbs.db
+
+.vscode/
+.idea/
+
+# output files
+*.txt
+*.md

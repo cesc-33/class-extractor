@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8">
+  <title>Class Extractor</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>Class Extractor</h1>
+      <p>Extracts source code for AI context</p>
+    </header>
+
+    <main>
+      <section class="card drop-zone" id="upload-drop-zone">
+        <div class="drop-content">
+          <span style="font-size: 1.5rem; display: block; margin-bottom: 0.5rem;">📤</span>
+          <label style="cursor: pointer;">Drag and drop here or click to browse</label>
+        </div>
+        <span id="selFolder" class="path-display">No folder selected</span>
+      </section>
+
+      <section class="card options">
+        <div class="options-header">
+          <label>File types and token limiter</label>
+          <button id="toggleOptions" class="toggle-btn">show options</button>
+        </div>
+
+        <div class="options-body">
+          <div class="form-group">
+            <label for="patterns">File types (glob patterns):</label>
+            <input type="text" id="patterns" />
+          </div>
+
+          <div class="form-group">
+            <label for="ignoreInput">Exclusions (folders or filenames):</label>
+
+            <div class="exclusions-row">
+              <div id="exclusion-drop-zone" class="exclusions drop-zone">
+                📤 Drag & drop here or click to browse
+              </div>
+
+              <div class="text-add">
+                <div class="input-group">
+                  <input type="text" id="ignoreInput" placeholder="z.B. config.js, test_folder" />
+                  <button id="addIgnore" class="btn-secondary">Add</button>
+                </div>
+              </div>
+            </div>
+
+            <div id="exclusionTags" class="tags-container"></div>
+          </div>
+
+          <div class="form-group">
+            <div class="token-group">
+              <label class="token-label">
+                <input id="checkBox" type="checkbox">
+                Token limit
+              </label>
+              <label id="tokenValue" class="badge">N/A</label>
+            </div>
+            <input id="tokenSlider" type="range" min="1000" max="100000" step="1000" value="100000" />
+          </div>
+        </div>
+      </section>
+
+      <section class="actions">
+        <button id="btnSaveTxt" class="btn-success">📄 Save as TXT</button>
+        <button id="btnSaveMd" class="btn-success">Ⓜ️⬇️ Save as MD</button>
+      </section>
+
+      <section class="log-section">
+        <div id="bar">
+          <div id="fill"></div>
+        </div>
+        <pre id="log"></pre>
+      </section>
+    </main>
+  </div>
+  <script src="render.js"></script>
+</body>
+
+</html>
